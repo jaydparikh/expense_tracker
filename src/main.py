@@ -6,13 +6,13 @@
 
 def main():
     print("************************************")
-    print("1. Add Book")
-    print("2. Book List")
-    print("3. Add Member")
-    print("4. View Member")
-    print("5. Issue Book")
-    print("6. Return Book")
-    print("7. View Transactions by Member")
+    print("1. Add Expense")
+    print("2. Modify Expense")
+    print("3. Delete Expense")
+    print("4. View All Expenses")
+    print("5. View Categories")
+    print("6. Add Category")
+    print("7. View Expenses by Category")
     print("***********************************")
     choice = input("Enter your choice: ",)
     
