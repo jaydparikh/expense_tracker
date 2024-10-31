@@ -14,9 +14,11 @@ class ExpenseTracker:
         for index,item in enumerate(self.expenses):
             print(f"Expense No.{index+1} Amount:{item.amount}, Category:{item.category.name}, Description:{item.description}")
 
-    def modify_expense(self,index, expense: Expense):
-        self.expenses[index-1] = expense
+    def modify_expense(self,user_index, expense: Expense):
+        self.expenses[user_index-1] = expense
 
+    def delete_expense(self,user_index):
+        del self.expenses[user_index-1]
 
 if __name__ == "__main__":
     # Create a Category object
@@ -38,5 +40,10 @@ if __name__ == "__main__":
     #Modify expense
     expense3 = Expense(300, food_category, "Dinner at ShivSagar")
     tracker.modify_expense(1,expense3)
+    tracker.view_expenses()
+    print("*"*5)
+
+    #Delete expense
+    tracker.delete_expense(2)
     tracker.view_expenses()
     print("*"*5)
