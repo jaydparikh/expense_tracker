@@ -26,7 +26,9 @@ if __name__ == "__main__":
 
     # Print expense details
     print("Amount:", expense1.amount)
+    print(type(expense1.amount))
     print("Category:", expense1.category.name)
+    print(type(expense1.category.name))
     print("Description:", expense1.description)
 
     
