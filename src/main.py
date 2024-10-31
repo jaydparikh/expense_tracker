@@ -25,17 +25,20 @@ def main():
             user_description = input("Enter Description: ").lower()
             expense = Expense(user_amount,user_category,user_description)
             tracker.add_expense(expense)
-        elif choice =="2":
+        elif choice =="2": #Modify Expense
             print("You have made the following expenses till now")
             tracker.view_expenses()
-            index = int(input("Which one do you want to modify: "))
+            user_index = int(input("Which one do you want to modify: "))
             user_amount = input("Enter Amount: ")
             user_category = Category(input("Enter Category: ").lower())
             user_description = input("Enter Description: ").lower()
             expense = Expense(user_amount,user_category,user_description)
-            tracker.modify_expense(index,expense)
-        elif choice =="3":
-            print("3")
+            tracker.modify_expense(user_index,expense)
+        elif choice =="3": #Delete Exepnse
+            print("You have made the following expenses till now")
+            tracker.view_expenses()
+            user_index = int(input("Which one do you want to delete: "))
+            tracker.delete_expense(user_index)
         elif choice == "4": #View All Expenses
             print("You have made the following expenses till now")
             tracker.view_expenses()
