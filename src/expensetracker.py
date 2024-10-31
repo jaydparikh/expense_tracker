@@ -11,9 +11,8 @@ class ExpenseTracker:
         self.expenses.append(expense)
     
     def view_expenses(self):
-        for i in self.expenses:
-            print(f"Amount: {i.amount}, Category: {i.category.name}, Description: {i.description}")
-
+        for index,item in enumerate(self.expenses):
+            print(f"Expense No.{index+1} Amount:{item.amount}, Category:{item.category.name}, Description:{item.description}")
 
 
 if __name__ == "__main__":
@@ -30,5 +29,4 @@ if __name__ == "__main__":
     tracker.add_expense(expense2)
 
     # View expenses
-    print(tracker.expenses)
     tracker.view_expenses()
