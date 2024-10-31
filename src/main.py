@@ -19,21 +19,19 @@ def main():
         choice = input("Enter your choice: ",)
         
         if choice == "1": #Add Expense
-            user_amount = input("Enter Amount:")
-            user_category = Category("New")
-            user_description = input("Enter Description")
+            print("Add Expense.Add to below existing categories or create a new one")
+            user_amount = input("Enter Amount: ")
+            user_category = Category(input("Enter Category: ").lower())
+            user_description = input("Enter Description: ").lower()
             expense = Expense(user_amount,user_category,user_description)
             tracker.add_expense(expense)
-            print("1")
-            print(expense)
-            print(tracker.expenses)
         elif choice =="2":
             print("2")
         elif choice =="3":
             print("3")
         elif choice == "4": #View All Expenses
+            print("You have made the following expenses till now")
             tracker.view_expenses()
-            print("4")
         elif choice == "5":
             print("5")
         elif choice == "6":
