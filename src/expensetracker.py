@@ -12,7 +12,7 @@ class ExpenseTracker:
     
     def view_expenses(self):
         for index,item in enumerate(self.expenses):
-            print(f"Expense No.{index+1} Amount:{item.amount}, Category:{item.category.name}, Description:{item.description}")
+            print(f"Expense No.{index+1} Amount:{item.get_amount()}, Category:{item.get_category().name}, Description:{item.get_description()}")
 
     def modify_expense(self,user_index, expense: Expense):
         self.expenses[user_index-1] = expense
