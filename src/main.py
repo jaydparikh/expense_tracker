@@ -26,7 +26,14 @@ def main():
             expense = Expense(user_amount,user_category,user_description)
             tracker.add_expense(expense)
         elif choice =="2":
-            print("2")
+            print("You have made the following expenses till now")
+            tracker.view_expenses()
+            index = int(input("Which one do you want to modify: "))
+            user_amount = input("Enter Amount: ")
+            user_category = Category(input("Enter Category: ").lower())
+            user_description = input("Enter Description: ").lower()
+            expense = Expense(user_amount,user_category,user_description)
+            tracker.modify_expense(index,expense)
         elif choice =="3":
             print("3")
         elif choice == "4": #View All Expenses
