@@ -17,21 +17,29 @@ def read_expenses(tracker):
             tracker.add_expense(expense)
 
 # Read data from categories csv file
-
 def read_categories(tracker):
     with open('data/categories.txt',"r") as file:
-        for line in file:
+        lines = file.readlines()
+        for line in lines:
             category = line.strip()
-            tracker.add_category(category)
+            if category:
+                tracker.add_category(category)
 
 # Write data to expenses file
+def save_expenses(tracker):
+    with open('data/expenses.csv',"w") as csvfile:
+        csvwriter = csv.writer(csvfile)
+        csvwriter.writerow(["amount", "category", "description"])
+        for expense in tracker.expenses:
+            row = [expense.get_amount(),expense.get_category().name,expense.get_description()]
+            csvwriter.writerow(row)
 
 
 # Write data to categories file
 def save_categories(tracker):
     with open('data/categories.txt',"w") as file:
         for category in tracker.categories:
-            file.write(category.get_name()+"\n")
+            file.writelines(category.get_name() + "\n")
 
 
 if __name__ == "__main__":
@@ -53,3 +61,12 @@ if __name__ == "__main__":
     save_categories(tracker)
     read_categories(tracker)
     tracker.view_categories()
+    print("*"*5)
+
+    # write expenses
+    print("write expenses")
+    expense1 = Expense(100, Category("nothing"), "Lunch at McDonald's")
+    tracker.add_expense(expense1)
+    save_expenses(tracker)
+    read_expenses(tracker)
+    print("*"*5)

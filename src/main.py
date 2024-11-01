@@ -2,6 +2,7 @@
 from expensetracker import ExpenseTracker
 from expense import Expense
 from category import Category
+from filehandling import *
 
 
 def main():
@@ -57,10 +58,14 @@ def main():
             user_category = input("What category would you like to view for: ").strip().lower()
             tracker.view_expenses_bycategory(user_category)
         elif choice == "8": #Quit
+            save_categories(tracker)
+            save_expenses(tracker)
             break
         else:
             print("** Incorrect input, please try again **")
         
 if __name__ == "__main__":
     tracker = ExpenseTracker()
+    read_categories(tracker)
+    read_expenses(tracker)
     main()
