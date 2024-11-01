@@ -5,7 +5,7 @@ from category import Category
 class ExpenseTracker:
     def __init__(self):
         self.expenses = []
-        self.categories = []
+        self.categories = {Category("food"), Category("grocery"), Category("travel")} #pre defined categories 
     
     def add_expense(self, expense: Expense):
         self.expenses.append(expense)
@@ -19,6 +19,15 @@ class ExpenseTracker:
 
     def delete_expense(self,user_index):
         del self.expenses[user_index-1]
+    
+    def add_category(self,category_name):
+        category= Category(category_name)
+        self.categories.add(category)
+
+    def view_categories(self):
+        for i in self.categories:
+            print(i.get_name())
+
 
 if __name__ == "__main__":
     # Create a Category object
@@ -47,3 +56,7 @@ if __name__ == "__main__":
     tracker.delete_expense(2)
     tracker.view_expenses()
     print("*"*5)
+
+    #Add category
+    tracker.add_category("Utilities".lower())
+    tracker.view_categories()
