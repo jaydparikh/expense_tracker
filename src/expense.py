@@ -25,10 +25,8 @@ if __name__ == "__main__":
     expense1 = Expense(100, food_category, "Lunch at McDonald's")
 
     # Print expense details
-    print("Amount:", expense1.amount)
-    print(type(expense1.amount))
-    print("Category:", expense1.category.name)
-    print(type(expense1.category.name))
-    print("Description:", expense1.description)
+    print("Amount:", expense1.get_amount())
+    print("Category:", expense1.get_category())
+    print("Description:", expense1.get_description())
 
     
