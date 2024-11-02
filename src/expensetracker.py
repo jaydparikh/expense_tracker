@@ -5,7 +5,7 @@ from category import Category
 class ExpenseTracker:
     def __init__(self):
         self.expenses = []
-        self.categories = set() #pre defined categories 
+        self.categories = set()
     
     def add_expense(self, expense: Expense):
         self.expenses.append(expense)
