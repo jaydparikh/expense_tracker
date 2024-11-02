@@ -7,24 +7,30 @@ from category import Category
 # Read data from expenses csv file
 def read_expenses(tracker):
     tracker.expenses = [] #start with a blank expense list in tracker
-    with open('data/expenses.csv',"r") as csvfile:
-        csvreader = csv.reader(csvfile)
-        next(csvreader) #first line is header
-        for row in csvreader: 
-            amount = int(row[0])
-            category = row[1]
-            description = row[2]
-            expense = Expense(amount,Category(category),description) 
-            tracker.add_expense(expense)
+    try:
+        with open('data/expenses.csv',"r") as csvfile:
+            csvreader = csv.reader(csvfile)
+            next(csvreader) #first line is header
+            for row in csvreader: 
+                amount = int(row[0])
+                category = row[1]
+                description = row[2]
+                expense = Expense(amount,Category(category),description) 
+                tracker.add_expense(expense)
+    except FileNotFoundError:
+        raise FileNotFoundError("Expenses CSV file not found.")
 
 # Read data from categories csv file
 def read_categories(tracker):
-    with open('data/categories.txt',"r") as file:
-        lines = file.readlines()
-        for line in lines:
-            category = line.strip()
-            if category:
-                tracker.add_category(category)
+    try:
+        with open('data/categories.txt',"r") as file:
+            lines = file.readlines()
+            for line in lines:
+                category = line.strip()
+                if category:
+                    tracker.add_category(category)
+    except FileNotFoundError:
+            raise FileNotFoundError("Expenses CSV file not found.") 
 
 # Write data to expenses file
 def save_expenses(tracker):
