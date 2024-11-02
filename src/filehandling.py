@@ -30,7 +30,7 @@ def read_categories(tracker):
                 if category:
                     tracker.add_category(category)
     except FileNotFoundError:
-            raise FileNotFoundError("Expenses CSV file not found.") 
+            raise FileNotFoundError("Categories TXT file not found.") 
 
 # Write data to expenses file
 def save_expenses(tracker):
