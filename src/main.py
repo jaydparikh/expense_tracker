@@ -34,12 +34,15 @@ def main():
         elif choice =="2": #Modify Expense
             print("You have made the following expenses till now")
             tracker.view_expenses()
-            user_index = int(input("Which one do you want to modify: "))
-            user_amount = input("Enter Amount: ").strip().lower()
-            user_category = input("Enter Category: ").strip().lower()
-            user_description = input("Enter Description: ").strip().lower()
-            expense = Expense(user_amount,Category(user_category),user_description)
-            tracker.modify_expense(user_index,expense)
+            try:
+                user_index = int(input("Which one do you want to modify: "))
+                user_amount = input("Enter Amount: ").strip().lower()
+                user_category = input("Enter Category: ").strip().lower()
+                user_description = input("Enter Description: ").strip().lower()
+                expense = Expense(user_amount,Category(user_category),user_description)
+                tracker.modify_expense(user_index,expense)
+            except ValueError as e:
+                print(f'Invalid input: {e}')
         
         elif choice =="3": #Delete Exepnse
             print("You have made the following expenses till now")
@@ -75,6 +78,7 @@ def main():
         elif choice == "8": #Quit
             save_categories(tracker)
             save_expenses(tracker)
+            print("Exiting the expense tracker.")
             break
         
         else:
