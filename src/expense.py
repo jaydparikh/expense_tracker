@@ -4,6 +4,12 @@ from category import Category
 class Expense:
     
     def __init__(self,amount : float,category : Category, description = "NA"):
+        # Validation
+        if not isinstance(amount, (int, float)):
+            raise ValueError("Amount must be a number")
+        if amount < 0:
+            raise ValueError("Amount cannot be negative")
+        # Assignment
         self.amount = amount
         self.category = category
         self.description = description
@@ -28,5 +34,4 @@ if __name__ == "__main__":
     print("Amount:", expense1.get_amount())
     print("Category:", expense1.get_category())
     print("Description:", expense1.get_description())
-
     
