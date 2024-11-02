@@ -2,7 +2,11 @@
 
 class Category:
     
-    def __init__(self,name : str = "MISC"):
+    def __init__(self,name):
+        if not isinstance(name, str):
+            raise TypeError("Name must be a string")
+        if len(name) == 0:
+            raise ValueError("Name cannot be empty")
         self.name = name
 
     def get_name(self):
@@ -23,6 +27,7 @@ if __name__ == "__main__":
 
     # Print category details
     print(food_category.get_name())
+    print("*"*5)
 
     #check to ensure unique values in set of categories
     set1 = {Category("food"), Category("utilities")}
@@ -30,3 +35,4 @@ if __name__ == "__main__":
     set1.add(Category("travel"))
     for i in set1:
         print(i.get_name())
+    print("*"*5)
