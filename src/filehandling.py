@@ -6,6 +6,7 @@ from category import Category
 
 # Read data from expenses csv file
 def read_expenses(tracker):
+    tracker.expenses = [] #start with a blank expense list in tracker
     with open('data/expenses.csv',"r") as csvfile:
         csvreader = csv.reader(csvfile)
         next(csvreader) #first line is header
@@ -27,7 +28,7 @@ def read_categories(tracker):
 
 # Write data to expenses file
 def save_expenses(tracker):
-    with open('data/expenses.csv',"w") as csvfile:
+    with open('data/expenses.csv',"w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerow(["amount", "category", "description"])
         for expense in tracker.expenses:
@@ -65,8 +66,9 @@ if __name__ == "__main__":
 
     # write expenses
     print("write expenses")
-    expense1 = Expense(100, Category("nothing"), "Lunch at McDonald's")
+    expense1 = Expense(100, Category("nothing"), "Lunch at Dominos")
     tracker.add_expense(expense1)
     save_expenses(tracker)
     read_expenses(tracker)
+    tracker.view_expenses()
     print("*"*5)
