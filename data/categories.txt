@@ -1,3 +1,6 @@
 utility
-food
+nothing
+grocery
+education
 test1
+food
