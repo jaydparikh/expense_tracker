@@ -75,10 +75,14 @@ def main():
             user_category = input("What category would you like to view for: ").strip().lower()
             tracker.view_expenses_bycategory(user_category)
         
-        elif choice == "8": #Quit
+        elif choice == "8": # Quit
+            # Save the current categories to the file
             save_categories(tracker)
+            # Save the current expenses to the file
             save_expenses(tracker)
+            # Print exit message
             print("Exiting the expense tracker.")
+            # Break the loop to exit the application
             break
         
         else:
@@ -98,3 +102,6 @@ if __name__ == "__main__":
         print(f"Error: {e}")
     
     main()
+
+
+
